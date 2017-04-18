@@ -1,7 +1,11 @@
-file.name = function(path, original_file_name = "", extension, new_text = ""){
+file.name = function(path, original_file_name = "", extension = NA, new_text = ""){
         library(tools)
         little_filename =  file_path_sans_ext( basename(original_file_name) )
-        extension0 = gsub("\\.", "", extension)
+        if(!is.na(extension)){
+                extension0 = gsub("\\.", "", extension)
+        }else{
+                extension0 = file_ext(path)
+        }
         
         out_path = file_path_sans_ext(path)
         

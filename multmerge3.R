@@ -1,5 +1,8 @@
-multmerge3 = function(path, read_fn = read.csv, n_files = F){
-        file_path = list.files(path, full.names = T)
+multmerge3 = function(path, read_fn = read.csv, n_files = F, file_path = 1){
+        if(length(file_path) == 1){
+                file_path = list.files(path, full.names = T)
+        }
+       
         if(n_files == F){
                 n_files = length(file_path)
         }
